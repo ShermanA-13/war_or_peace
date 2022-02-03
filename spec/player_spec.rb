@@ -18,4 +18,8 @@ describe Player do
   it 'creates a player with a deck of cards' do
       expect(player).to be_an_instance_of(Player)
   end
+
+  it 'has a name' do
+    expect(player.name).to eq('Clarissa')
+  end
 end
