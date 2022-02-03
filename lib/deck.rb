@@ -5,4 +5,8 @@ class Deck
     @cards = cards
   end
 
+  def rank_of_card_at(card_index)
+    @cards.at(card_index).rank
+  end
+
 end
