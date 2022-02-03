@@ -15,11 +15,21 @@ describe Player do
 
   player = Player.new('Clarissa', deck)
 
-  it 'creates a player with a deck of cards' do
+  it 'creates a player' do
       expect(player).to be_an_instance_of(Player)
   end
 
   it 'has a name' do
     expect(player.name).to eq('Clarissa')
   end
+
+  it 'player has a deck' do
+    expect(player.deck).to eq(deck)
+  end
+
+  it 'checks if player has lost' do
+    expect(player.has_lost?).to eq(false)
+  end
+
+
 end
