@@ -3,7 +3,7 @@ class Card
               :value,
               :rank
 
-  def initalize(suit, value, rank)
+  def initialize(suit, value, rank)
     @suit = suit
     @value = value
     @rank = rank
