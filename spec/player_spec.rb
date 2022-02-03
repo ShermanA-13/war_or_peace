@@ -31,5 +31,16 @@ describe Player do
     expect(player.has_lost?).to eq(false)
   end
 
+  it 'removes card from player deck' do
+    expect(player.deck.remove_card).to eq(card1)
+    expect(player.deck.cards).to eq([card2,card3])
+  end
+
+  it 'states player has lost' do
+    until player.deck.cards.length == 0
+      player.deck.remove_card
+      end
+    expect(player.has_lost?).to eq(true)
+  end
 
 end
