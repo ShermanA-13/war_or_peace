@@ -5,8 +5,8 @@ require './lib/player'
 class Turn
   attr_reader :player1,
               :player2,
-              :spoils_of_war
-
+              :spoils_of_war,
+              :winner
 
   def initialize(player1, player2)
     @player1 = player1
@@ -49,8 +49,9 @@ class Turn
       end
     end
 
-    #def award_spoils(winner)
-      #until cards.length == 0
-        #winner.deck.add_card << @spoils_of_war
-    #end
+    def award_spoils(winner)
+      @spoils_of_war.each do |spoil|
+        winner.deck.add_card(spoil)
+      end
+    end
   end

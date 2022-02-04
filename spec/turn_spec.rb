@@ -23,6 +23,8 @@ describe Turn do
 
   turn = Turn.new(player1, player2)
 
+  winner = turn.winner
+
   it 'exists' do
     expect(turn).to be_an_instance_of(Turn)
   end
@@ -48,8 +50,8 @@ describe Turn do
     turn.pile_cards
     expect(turn.spoils_of_war).to eq([card1, card3])
   end
-binding.pry
-  xit 'gives spoils_of_war to winner' do
+
+  it 'gives spoils_of_war to winner' do
     turn.pile_cards
     turn.award_spoils(winner)
   end
