@@ -43,13 +43,15 @@ describe Turn do
     expect(turn.winner.name).to eq('Megan')
   end
 
+
   it 'either completely removes or shovels cards into spoils_of_war' do
     turn.pile_cards
     expect(turn.spoils_of_war).to eq([card1, card3])
   end
-
-
-
-
+binding.pry
+  xit 'gives spoils_of_war to winner' do
+    turn.pile_cards
+    turn.award_spoils(winner)
+  end
 
 end
