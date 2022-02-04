@@ -6,7 +6,6 @@ class Turn
   attr_reader :player1,
               :player2,
               :spoils_of_war
-              :winner
 
 
   def initialize(player1, player2)
@@ -27,17 +26,17 @@ class Turn
 
     def winner
         if type == :mutually_assured_destruction
-          'No Winner'
-        elsif type == :war && @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
+          "No Winner"
+        elsif type == :war && player1.deck.rank_of_card_at(2) > player2.deck.rank_of_card_at(2)
           @player1
-        elsif type == :war && @player1.deck.rank_of_card_at(2) < @player2.deck.rank_of_card_at(2)
+        elsif type == :war && player1.deck.rank_of_card_at(2) < player2.deck.rank_of_card_at(2)
           @player2
-        elsif type == :basic && @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+        elsif type == :basic && player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
           @player1
-        elsif type == :basic && @player1.deck.rank_of_card_at(0) < @player2.deck.rank_of_card_at(0)
+        elsif type == :basic && player1.deck.rank_of_card_at(0) < player2.deck.rank_of_card_at(0)
           @player2
-        end
       end
+    end
 
     def pile_cards
       if type == :mutually_assured_destruction
@@ -50,9 +49,8 @@ class Turn
       end
     end
 
-    def award_spoils(winner)
-      @spoils_of_war.each do |unlimited_power|
-        winner.deck.add_card(unlimited_power)
-      end
-    end
-end
+    #def award_spoils(winner)
+      #until cards.length == 0
+        #winner.deck.add_card << @spoils_of_war
+    #end
+  end
