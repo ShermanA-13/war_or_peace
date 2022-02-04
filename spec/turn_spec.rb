@@ -32,6 +32,11 @@ describe Turn do
     expect(turn.player1.deck).to eq(deck1)
     expect(turn.player2.name).to eq('Aurora')
     expect(turn.player2.deck).to eq(deck2)
+    expect(turn.spoils_of_war).to eq([])
+  end
+
+  it 'first two cards of player 1 and 2 is a basic turn' do
+    expect(turn.type).to eq(:basic)
   end
 
 end
