@@ -15,5 +15,5 @@ describe StandardDeck do
   it 'knows those cards can be 4 different suits' do
     expect(new_deck.cards.length).to eq(52)
   end
-
+binding.pry
 end
