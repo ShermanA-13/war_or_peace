@@ -39,4 +39,9 @@ describe Turn do
     expect(turn.type).to eq(:basic)
   end
 
+  it 'determins winner for card' do
+    expect(turn.winner.name).to eq('Megan')
+  end
+
+
 end

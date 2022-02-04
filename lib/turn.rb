@@ -24,4 +24,19 @@ class Turn
       end
     end
 
+    def winner
+        if type == :mutually_assured_destruction
+          "No Winner"
+        elsif type == :war && player1.deck.rank_of_card_at(2) > player2.deck.rank_of_card_at(2)
+          @player1
+        elsif type == :war && player1.deck.rank_of_card_at(2) < player2.deck.rank_of_card_at(2)
+          @player2
+        elsif type == :basic && player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
+          @player1
+        else type == :basic && player1.deck.rank_of_card_at(0) < player2.deck.rank_of_card_at(0)
+          @player2
+      end
+    end
+
+
 end
