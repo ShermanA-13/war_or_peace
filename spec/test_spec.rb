@@ -1,13 +1,13 @@
 require 'rspec'
 require 'pry'
 require './lib/standard_deck'
-require './lib/game'
+require './lib/test'
 require './lib/turn'
 require './lib/card'
 
-describe Game do
+describe Test do
 
-  game = Game.new
+  test = Test.new
 
   full_deck = StandardDeck.new
 

@@ -1,5 +1,3 @@
-require './lib/card'
-
 class StandardDeck
   attr_reader :cards
 
@@ -8,6 +6,10 @@ class StandardDeck
     @suits = [:diamond, :heart, :club, :spade]
     @values_and_ranks = {values: ['2','3','4','5','6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
                    ranks: [2, 3, 4, 5, 6, 7 ,8, 9, 10, 11, 12, 13, 14]}
+  end
+
+  def add_card(card)
+    @cards << card
   end
 
   def create_standard_deck
@@ -20,7 +22,4 @@ class StandardDeck
     end
   end
 
-  def add_card(card)
-    @cards << card
-  end
 end
