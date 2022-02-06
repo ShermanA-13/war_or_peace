@@ -23,4 +23,15 @@ describe Game do
     expect(game.split_deck.cards.length)
   end
 
+  it 'takes user input for player1 and player 2 for greeting' do
+    game.greeting
+    allow($stdin).to receive(:gets).and_return('name1', 'name2')
+     @player1 = $stdin.gets
+     @player2 = $stdin.gets
+
+     expect(@player1).to eq('name1')
+     expect(@player2).to eq('name2')
+  end
+
+
 end
