@@ -14,15 +14,14 @@ class Game
               :cards
 
   def initialize
-    @greeting = greeting
     @full_deck = StandardDeck.new
+    @turns = []
   end
 
-  def greeting
-    puts "Test"
-  end
-
-  def create
+  def split_deck
     @full_deck.create_standard_deck
+    shuffled_deck = @full_deck.cards.shuffle
+    @deck1 = Deck.new(shuffled_deck[0..25])
+    @deck2 = Deck.new(shuffled_deck[26..52])
   end
 end

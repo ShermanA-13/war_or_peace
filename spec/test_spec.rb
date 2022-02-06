@@ -10,8 +10,5 @@ describe Test do
   test = Test.new
 
   full_deck = StandardDeck.new
-
-
-binding.pry
-
+ binding.pry
 end
