@@ -15,7 +15,9 @@ class Turn
   end
 
   def type
-      if @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0) && @player1.deck.rank_of_card_at(2) == @player2.deck.rank_of_card_at(2)
+      if @player1.deck.cards.length < 3 || @player2.deck.cards.length < 3
+        :draw
+      elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0) && @player1.deck.rank_of_card_at(2) == @player2.deck.rank_of_card_at(2)
         :mutually_assured_destruction
       elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
         :war
@@ -26,7 +28,7 @@ class Turn
 
     def winner
         if type == :mutually_assured_destruction
-          "No Winner"
+            puts "No Winner"
         elsif type == :war && @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
           @player1
         elsif type == :war && @player1.deck.rank_of_card_at(2) < @player2.deck.rank_of_card_at(2)
@@ -35,8 +37,17 @@ class Turn
           @player1
         elsif type == :basic && @player1.deck.rank_of_card_at(0) < @player2.deck.rank_of_card_at(0)
           @player2
+        elsif type == :draw && @player1.deck.cards.length < 3 || @player2.deck.cards.length < 3
+          if @player1.deck.cards.length < 2 || @player2.deck.cards.length < 2
+             if :basic && @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+               @player2
+             elsif :basic && @player1.deck.rank_of_card_at(0) < @player2.deck.rank_of_card_at(0)
+               @player1
+             else @player.has_lost?
+            end
+          end
+        end
       end
-    end
 
     def pile_cards
       if type == :mutually_assured_destruction
@@ -50,8 +61,6 @@ class Turn
     end
 
     def award_spoils(winner)
-      @spoils_of_war.each do |spoil|
-        winner.deck.add_card(spoil)
-      end
+        winner.deck.cards << @spoils_of_war
     end
-  end
+end

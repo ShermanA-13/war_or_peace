@@ -34,4 +34,12 @@ describe Game do
   end
 
 
+  it "takes user input 'go' to runs and 'exit/quit to end'."do
+  game.start
+  allow($stdin).to receive(:gets).and_return('go')
+  run = $stdin.gets
+  expect(run).to match(/GO/i)
+  binding.pry
+  expect(game.start).to output("Let the games begin!")
+  end
 end
